@@ -1,0 +1,7 @@
+.config/
+.bundle/
+.upm/
+.replit
+replit.nix
+.idea/
+.env
