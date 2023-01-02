@@ -3,8 +3,10 @@ class Bot
         @client.watching = "Discourse"
 
         Thread.new do
-            watch_discourse
-            sleep 20
+            loop do
+                watch_discourse
+                sleep 20
+            end
         end
     end
 
