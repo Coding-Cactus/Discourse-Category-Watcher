@@ -8,6 +8,7 @@ require_relative "lib/bot"
 require_relative "lib/discourse"
 
 set :bind, "0.0.0.0"
+set :protection, :except => :frame_options
 
 get "/" do
 	"hi"

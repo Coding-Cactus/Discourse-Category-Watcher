@@ -21,6 +21,7 @@ class Bot
 
     def slash_command(name, needs_admin=false)
         @client.application_command(name) do |event|
+            p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
             if needs_admin && !(event.user.defined_permission?(:administrator) || event.server.owner == event.user)
                 event.respond(
                     embeds: [Discordrb::Webhooks::Embed.new(
