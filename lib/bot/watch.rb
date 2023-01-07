@@ -33,8 +33,6 @@ class Bot
         else
             categories = data[:categories]
 
-            p categories
-
             if categories.include?(category_id)
                 if categories[category_id].include?(discord_channel)
                     event.respond(
@@ -47,10 +45,6 @@ class Bot
                     )
                     return
                 end
-
-                p "categories.#{category_id}"
-
-                p [domain, category_id, discord_channel]
                 
                 @domains.update_one({ domain: domain }, { "$push" => { "categories.#{category_id}" => discord_channel } })
             else                
