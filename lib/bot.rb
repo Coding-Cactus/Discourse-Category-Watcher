@@ -2,6 +2,7 @@ require_relative "bot/ready"
 
 require_relative "bot/watch"
 require_relative "bot/unwatch"
+require_relative "bot/kill_bot"
 
 
 class Bot
@@ -10,7 +11,8 @@ class Bot
         @domains = Mongo::Client.new(mongo_uri, database: "watcher")[:domains]
 
         @client.ready { ready }
-
+        
+        slash_command(:kill)          { |event,       _| kill_bot(event) } 
         slash_command(:ping)          { |event,       _| event.respond(content: "pong :ping_pong:") }
         slash_command(:invite)        { |event,       _| event.respond(content: "https://discord.com/api/oauth2/authorize?client_id=1059437148631220304&permissions=0&scope=bot%20applications.commands") }
         slash_command(:watch, true)   { |event, options|   watch(event, options["domain"], options["id"], options["channel"]) }
