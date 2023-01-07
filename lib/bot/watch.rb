@@ -42,7 +42,7 @@ class Bot
         event.respond(
             embeds: [Discordrb::Webhooks::Embed.new(
                 title: "Watching Category!",
-                description: "I keep an eye on https://#{domain}/c/-/#{category_id} for you, and send any new topics to <##{discord_channel}>",
+                description: "I'll keep an eye on https://#{domain}/c/-/#{category_id} for you, and send any new topics to <##{discord_channel}>",
                 colour: 0x00cc00,
                 timestamp: Time.new
             )]
