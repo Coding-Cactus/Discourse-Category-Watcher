@@ -7,9 +7,14 @@ class Bot
             @bot_started = true
 
             Thread.new do
-                loop do
-                    watch_discourse
+                begin
+                    loop do
+                        watch_discourse
+                        sleep 20
+                    end
+                rescue
                     sleep 20
+                    @bot_started = false
                 end
             end
         end
