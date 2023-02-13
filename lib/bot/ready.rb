@@ -1,11 +1,16 @@
 class Bot
+
     def ready
         @client.watching = "Discourse"
 
-        Thread.new do
-            loop do
-                watch_discourse
-                sleep 20
+        unless @bot_started
+            @bot_started = true
+
+            Thread.new do
+                loop do
+                    watch_discourse
+                    sleep 20
+                end
             end
         end
     end
