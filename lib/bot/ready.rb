@@ -7,15 +7,14 @@ class Bot
             @bot_started = true
 
             Thread.new do
-                begin
-                    loop do
+                loop do
+                    begin
                         watch_discourse
-                        sleep 20
+                    rescue
+                        nil
                     end
-                rescue
-                    sleep 20
-                    @bot_started = false
                 end
+                sleep 20
             end
         end
     end
@@ -47,17 +46,17 @@ class Bot
                                 false,
                                 Discordrb::Webhooks::Embed.new(
                                     title: topic.title,
-                    				url: topic.url,
-                    				description: description.length > 1000 ? "#{description[0..1000]}..." : description,
-                    				colour: category.colour,
-                    				timestamp: Time.new,
-                    				author: Discordrb::Webhooks::EmbedAuthor.new(
-                    					url:      topic.author.url,
-                    					name:     topic.author.name,
-                    					icon_url: topic.author.pfp
-                    				),
-                    				footer: Discordrb::Webhooks::EmbedFooter.new(text: category.name)
-                                )
+                                    url: topic.url,
+                                    description: description.length > 1000 ? "#{description[0..1000]}..." : description,
+                                    colour: category.colour,
+                                    timestamp: Time.new,
+                                    author: Discordrb::Webhooks::EmbedAuthor.new(
+                                    	url:      topic.author.url,
+                                    	name:     topic.author.name,
+                                    	icon_url: topic.author.pfp
+                                    ),
+                                    footer: Discordrb::Webhooks::EmbedFooter.new(text: category.name)
+                               )
                             )
                         rescue
                             nil
