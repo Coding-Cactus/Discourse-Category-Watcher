@@ -42,7 +42,7 @@ GEM
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
-    mongo (2.18.2)
+    mongo (2.19.1)
       bson (>= 4.14.1, < 5.0.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
@@ -82,7 +82,7 @@ DEPENDENCIES
   htmlentities (~> 4.3)
   http (~> 5.1)
   json (~> 2.6)
-  mongo (~> 2.18)
+  mongo (~> 2.19)
   sinatra (~> 3.0)
 
 BUNDLED WITH

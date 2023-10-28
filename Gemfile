@@ -8,7 +8,7 @@ gem "discordrb", github: "shardlab/discordrb", branch: "main"
 
 gem "sinatra", "~> 3.0"
 
-gem "mongo", "~> 2.18"
+gem "mongo", "~> 2.19"
 
 gem "http", "~> 5.1"
 
